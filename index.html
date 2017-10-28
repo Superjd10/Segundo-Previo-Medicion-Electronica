@@ -859,6 +859,284 @@
 
         		<p>Como el primer grupo tiene 5 datos, entonces N = 5.</p>
 
+        		<table class="table table-bordered table-hover"><tbody>
+        		<tr>
+	        		<td width="132"><p>Di</p></td>
+        			<td width="128"><p>Vi</p></td>
+        			<td width="124"><p>\( {Di}^\mathbf{2} \)</p></td>
+        			<td width="142"><p>Di * Vi</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>3</p></td>
+        			<td width="128"><p>3</p></td>
+        			<td width="124"><p>9</p></td>
+        			<td width="142"><p>9</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>3,94</p></td>
+        			<td width="128"><p>2,68</p></td>
+        			<td width="124"><p>15,5236</p></td>
+        			<td width="142"><p>10,5592</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>4,42</p></td>
+        			<td width="128"><p>2,52</p></td>
+        			<td width="124"><p>19,5364</p></td>
+        			<td width="142"><p>11,1384</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>4,93</p></td>
+        			<td width="128"><p>2,35</p></td>
+        			<td width="124"><p>24,3049</p></td>
+        			<td width="142"><p>11,5855</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>5,44</p></td>
+        			<td width="128"><p>2,18</p></td>
+        			<td width="124"><p>29,5936</p></td>
+        			<td width="142"><p>11,8592</p></td>
+        		</tr>
+        		<tr>
+        			<td width="132"><p>\( \sum{D_i=}21,73 \)</p></td>
+        			<td width="128"><p>\( \sum{V_i=}12,73 \)</p></td>
+        			<td width="124"><p>\( \sum{D_i}^2=97,96 \)</p></td>
+        			<td width="142"><p>\( \sum{D_i\ast V_i}=54,14 \)</p></td>
+        		</tr>
+        		</tbody></table>
+
+        		$$ V_{\mathbf{1}=}{m_\mathbf{1}D}_\mathbf{1}+b $$
+
+        		$$ \Delta=N\sum_{i=1}^{N}{{D_i}^2-\ (}{\sum_{i=1}^{N}{D_i)}\ }^2=5\ast\left(97,96\right)-\left(21,73\right)^2 $$
+        		
+        		$$ \Delta=17,6 $$
+
+        		$$ m_1=\frac{N\sum_{i=1}^{N}{D_iV_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}V_i}}}{\Delta}=\frac{5\ast\left(54,14\right)-\left(21,73\right)\ast(12,73)}{17,6} $$
+
+        		$$ m_1=-0,337 $$
+
+        		$$ b=\frac{\sum_{i=1}^{N}{{D_i}^2{\sum_{i=1}^{N}V}_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}{D_iV}_i}}}{\Delta}=\frac{\left(97,96\right)\ast\left(12,73\right)-\left(21,73\right)\ast(54,14)}{17,6} $$
+
+        		$$ b=4 $$
+
+        		$$ \mathbf{V}_{\mathbf{1}=}{-(\mathbf{0},\mathbf{337})\mathbf{D}}_\mathbf{1}+\mathbf{4} $$
+
+        		<p><b>Segunda línea recta:</b></p>
+
+        		<p>Para la segunda gráfica, el grupo tiene 4 valores, entonces el valor de N = 4.</p>
+
+        		<table class="table table-bordered table-hover"><tbody>
+        		<tr>
+	        		<td width="129"><p>Di</p></td>
+        			<td width="124"><p>Vi</p></td>
+        			<td width="143"><p>\( {Di}^\mathbf{2} \)</p></td>
+        			<td width="130"><p>Di * Vi</p></td>
+        		</tr>
+        		<tr>
+        			<td width="129"><p>5,95</p></td>
+        			<td width="124"><p>2,01</p></td>
+        			<td width="143"><p>35,4025</p></td>
+        			<td width="130"><p>11,9595</p></td>
+        		</tr>
+        		<tr>
+        			<td width="129"><p>6,67</p></td>
+        			<td width="124"><p>1,86</p></td>
+        			<td width="143"><p>44,4889</p></td>
+        			<td width="130"><p>12,4062</p></td>
+        		</tr>
+        		<tr>
+        			<td width="129"><p>7,23</p></td>
+        			<td width="124"><p>1,75</p></td>
+        			<td width="143"><p>52,2729</p></td>
+        			<td width="130"><p>12,6525</p></td>
+        		</tr>
+        		<tr>
+        			<td width="129"><p>8</p></td>
+        			<td width="124"><p>6</p></td>
+        			<td width="143"><p>64</p></td>
+        			<td width="130"><p>12,8</p></td>
+        		</tr>
+        		<tr>
+        			<td width="129"><p>\( \sum{D_i=}27,85 \)</p></td>
+        			<td width="124"><p>\( \sum{V_i=}7,22 \)</p></td>
+        			<td width="143"><p>\( \sum{D_i}^2=196,16 \)</p></td>
+        			<td width="130"><p>\( \sum{D_i\ast V_i}=49,82 \)</p></td>
+        		</tr>
+        		</tbody></table>
+
+        		$$ V_{2=}{m_2D}_2+b $$
+
+        		$$ \Delta=N\sum_{i=1}^{N}{{D_i}^2-\ (}{\sum_{i=1}^{N}{D_i)}\ }^2=4\ast\left(196,16\right)-\left(27,85\right)^2 $$
+
+        		$$ \Delta=9 $$
+
+        		$$ m_2=\frac{N\sum_{i=1}^{N}{D_iV_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}V_i}}}{\Delta}=\frac{4\ast\left(49,82\right)-\left(27,85\right)\ast(7,22)}{9} $$
+
+        		$$ m_2=-0,199 $$
+
+        		$$ b=\frac{\sum_{i=1}^{N}{{D_i}^2{\sum_{i=1}^{N}V}_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}{D_iV}_i}}}{\Delta}=\frac{\left(196,16\right)\ast\left(7,22\right)-\left(27,85\right)\ast(49,82)}{9} $$
+
+        		$$ b=3,2 $$
+
+        		$$ V_{2}={-(0,199)D}_2+3,2 $$
+
+        		<p><b>Tercera línea recta:</b></p>
+
+        		<p>Para el tercer grupo de datos, el valor de N = 5.</p>
+
+        		<table class="table table-bordered table-hover"><tbody>
+        		<tr>
+        			<td width="128"><p>Di</p></td>
+        			<td width="123"><p>Vi</p></td>
+        			<td width="144"><p>\( {Di}^\mathbf{2} \)</p></td>
+        			<td width="123"><p>Di * Vi</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>8,73</p></td>
+        			<td width="123"><p>1,45</p></td>
+        			<td width="144"><p>76,2129</p></td>
+        			<td width="123"><p>12,6585</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>10,12</p></td>
+        			<td width="123"><p>1,26</p></td>
+        			<td width="144"><p>102,4144</p></td>
+        			<td width="123"><p>12,7512</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>11,12</p></td>
+        			<td width="123"><p>1,15</p></td>
+        			<td width="144"><p>123,6544</p></td>
+        			<td width="123"><p>12,788</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>12,38</p></td>
+        			<td width="123"><p>1,03</p></td>
+        			<td width="144"><p>153,2644</p></td>
+        			<td width="123"><p>12,7514</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>14,84</p></td>
+        			<td width="123"><p>0,9</p></td>
+        			<td width="144"><p>220,2256</p></td>
+        			<td width="123"><p>13,356</p></td>
+        		</tr>
+        		<tr>
+        			<td width="128"><p>\( \sum{D_i=}57,19 \)</p></td>
+        			<td width="123"><p>\( \sum{V_i=}5,79 \)</p></td>
+        			<td width="144"><p>\( \sum{D_i}^2=675,77 \)</p></td>
+        			<td width="123"><p>\( \sum{D_i\ast V_i}=64,31 \)</p></td>
+        		</tr>
+        		</tbody></table>
+
+        		$$ V_{3=}{m_3D}_3+b $$
+
+        		$$ \Delta=N\sum_{i=1}^{N}{{D_i}^2-\ (}{\sum_{i=1}^{N}{D_i)}\ }^2=5\ast\left(675,77\right)-\left(57,19\right)^2 $$
+
+        		$$ \Delta=108,15 $$
+
+        		$$ m_3=\frac{N\sum_{i=1}^{N}{D_iV_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}V_i}}}{\Delta}=\frac{5\ast\left(64,31\right)-\left(57,19\right)\ast(5,79)}{108,15} $$
+
+        		$$ m_3=-0,089 $$
+
+        		$$ b=\frac{\sum_{i=1}^{N}{{D_i}^2{\sum_{i=1}^{N}V}_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}{D_iV}_i}}}{\Delta}=\frac{\left(675,77\right)\ast\left(5,79\right)-\left(57,19\right)\ast(64,31)}{108,15} $$
+
+        		$$ b=2,17 $$
+
+        		$$ V_{3=}{-(0,089)D}_3+2,17 $$
+
+        		<p><b>Cuarta línea recta:</b></p>
+
+        		<p>Para el cuarto grupo de datos el valor de N = 5, y sus datos quedarían así:</p>
+
+        		<table class="table table-bordered table-hover"><tbody>
+        		<tr>
+	        		<td width="135"><p>Di</p></td>
+        			<td width="121"><p>Vi</p></td>
+        			<td width="151"><p>\( {Di}^\mathbf{2} \)</p></td>
+        			<td width="121"><p>Di * Vi</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>17,01</p></td>
+        			<td width="121"><p>0,79</p></td>
+        			<td width="151"><p>289,3401</p></td>
+        			<td width="121"><p>13,4379</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>20,26</p></td>
+        			<td width="121"><p>0,66</p></td>
+        			<td width="151"><p>410,4676</p></td>
+        			<td width="121"><p>13,3716</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>25,49</p></td>
+        			<td width="121"><p>0,51</p></td>
+        			<td width="151"><p>649,7401</p></td>
+        			<td width="121"><p>12,9999</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>33,81</p></td>
+        			<td width="121"><p>0,39</p></td>
+        			<td width="151"><p>1143,1161</p></td>
+        			<td width="121"><p>13,1859</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>39,14</p></td>
+        			<td width="121"><p>0,3</p></td>
+        			<td width="151"><p>1531,9396</p></td>
+        			<td width="121"><p>11,742</p></td>
+        		</tr>
+        		<tr>
+        			<td width="135"><p>\( \sum{D_i=}135,71 \)</p></td>
+        			<td width="121"><p>\( \sum{V_i=}2,65 \)</p></td>
+        			<td width="151"><p>\( \sum{D_i}^2=4024,60 \)</p></td>
+        			<td width="121"><p>\( \sum{D_i\ast V_i}=64,74 \)</p></td>
+        		</tr>
+        		</tbody></table>
+
+        		$$ V_{4=}{m_4D}_4+b $$
+
+        		$$ \Delta=N\sum_{i=1}^{N}{{D_i}^2-\ (}{\sum_{i=1}^{N}{D_i)}\ }^2=5\ast\left(4024,6\right)-\left(135,71\right)^2 $$
+
+        		$$ \Delta=1705,8 $$
+
+        		$$ m_4=\frac{N\sum_{i=1}^{N}{D_iV_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}V_i}}}{\Delta}=\frac{5\ast\left(64,74\right)-\left(135,71\right)\ast(2,65)}{1705,8} $$
+
+        		$$ m_4=-0,021 $$
+
+        		$$ b=\frac{\sum_{i=1}^{N}{{D_i}^2{\sum_{i=1}^{N}V}_i-\sum_{i=1}^{N}{D_i\sum_{i=1}^{N}{D_iV}_i}}}{\Delta}=\frac{\left(4024,6\right)\ast\left(2,65\right)-\left(135,71\right)\ast(64,74)}{1705,8} $$
+
+        		$$ b=1,1 $$
+
+        		$$ V_{4=}{-(0,021)D}_4+1,1 $$
+
+        		<div class="text-center"><img src="img/midterm/24.png" class="img-fluid" alt="" /></div>
+
+        		<p>El código empleado para realizar la gráfica a trozos fue:</p>
+
+        		<pre><code>
+        			X1 = 3:0.1:5.8;
+        			X2 = 5.75:0.1:9.45;
+        			X3 = 9.4:0.1:15.85;
+        			X4 = 15.83:0.1:39.14;
+					
+        			Y1 = -0.337.*X1 + 4;
+        			Y2 = -0.199.*X2 + 3.2;
+        			Y3 = -0.089.*X3 + 2.17;
+        			Y4 = -0.021.*X4 + 1.1;
+					
+        			figure
+        			plot(X1, Y1, X2, Y2, X3, Y3, X4, Y4);
+        			grid on
+        		</code></pre>
+
+        		<small>Los rangos de X tuvieron que ser ajustados para que las líneas se cruzaran correctamente, ya que o bien las líneas sobraban (quedaban más largas que otras) o quedaba un espacio vacío o ‘gap’.</small>
+
+        	<li>Investigue el uso del toolbox o apps de Matlab “curve fitting” y realice el ajuste de curva más adecuado para la curva del punto 5. Realice un tutorial paso a paso donde muestre los resultados.</li>
+
+        	<p>El tutorial paso a paso puede encontrarse en la primera pestaña de este sitio web.</p>
+
+        	<p><a class="btn btn-primary btn-lg" data-toggle="tab" href="#tutorial" onclick="location.href='#top'">Click aquí para ir al tutorial</a></p>
+
         	</ol>
         </div>
       </div>
