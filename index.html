@@ -15,6 +15,10 @@
     .navbar {
       margin-bottom: 0;
     }
+    .tab-content p, .tab-content li {
+    	font-size: 1.5rem;
+    }
+
     </style>
 
   </head>
@@ -76,18 +80,793 @@
       <div class="tab-content">
       <hr>
         <div class="tab-pane active" id="tutorial" role="tab-pane">
+        	<h2>Un video explicativo del paso a paso que se verá a continuación:</h2>
+        	<div class="embed-responsive embed-responsive-16by9 w-50 mx-auto">
+        	  <iframe class="embed-responsive-item" src="//www.youtube.com/embed/Vas0OCfNIa8?rel=0" allowfullscreen></iframe>
+        	</div>
+        	<h2>Explicación:</h2>
+        	<p>Para trabajar con la herramienta Curve Fitting de Matlab, es necesario primero que nada cerciorarse de que el toolbox o la app se encuentra entre las instaladas, ya que es una herramienta adicional (add-on) de Matlab.</p>
+        	<div class="text-center"><img src="img/1.png" class="w-50 img-fluid" alt="Asegurarse que el toolbox esté en la lista de Apps" /></div>
+
+        	<p>Ahora procederemos a crear nuestros vectores, que serán los valores en X y Y. Para este punto, los valores de la variable independiente corresponde a la distancia D, expresada en Centímetros y los valores de la variable dependiente corresponde al potencial V, expresado en Voltios.</p>
+        	<div class="text-center"><img src="img/2.png" class="w-50 img-fluid" alt="Crearemos los vectores. Estos datos fueron dados en la guía del previo" /></div>
+
+        	<p>Ahora procedemos a abrir la app de Curve Fitting:</p>
+        	<div class="text-center"><img src="img/3.png" class="w-50 img-fluid" alt="Damos click en el app de Curve Fitting" /></div>
+
+        	<p>Ya dentro del toolbox o app de Curve Fitting, procederemos a darle un nombre (Fit name), que en este caso le puse <em>V vs D</em>, para enfatizar el hecho de qué tipo de gráfica es. Luego procederemos a seleccionar los datos que deseemos para cada uno de los ejes, que en este caso sólo es X y Y (la variable D para X y la variable V para Y)</p>
+        	<div class="text-center"><img src="img/4.png" class="w-50 img-fluid" alt="Seleccionar los valore para los ejes X y Y, en nuestro caso D y V" /></div>
+
+        	<p>Por defecto, el toolbox nos mostrará la linealización de esa gráfica, como se puede ver a continuación:</p>
+        	<div class="text-center"><img src="img/5.png" class="w-50 img-fluid" alt="Linealizacion de la gráfica de V vs D" /></div>
+
+        	<p>Al lado izquierdo, debajo de donde seleccionamos los datos, el toolbox nos dará los coeficientes del modelo lineal (de la forma y = mx+b, presentado en el toolbox como <em><b>f(x) = p1*x + p2</b></em>). En este caso, el valor de la pendiente es <em>-0.06806</em> y el de la constante del intercepto es <em>2.363</em>, tal y como se ve a continuación:</p>
+        	<div class="text-center"><img src="img/6.png" class="w-50 img-fluid" alt="Coeficientes de la ecuación lineal presentada en el toolbox de Curve Fitting" /></div>
+
+        	<p>En el centro, podremos seleccionar el grado de la ecuación del polinomio (de 1 a 9 coeficientes):</p>
+        	<div class="text-center"><img src="img/7.png" class="w-50 img-fluid" alt="Selección del grado del polinomio" /></div>
+
+        	<p>Por ejemplo, seleccionando 2, nos da como resultado la siguiente gráfica:</p>
+        	<div class="text-center"><img src="img/8.png" class="w-50 img-fluid" alt="Graficación de un polinomio de segundo grado con los puntos de V vs D" /></div>
+
+        	<p>En el primer menú desplegable en el centro del toolbox de Curve Fitting podemos elegir el modelo que deseemos usar, por ejemplo, interpolar, que básicamente sigue consecutivamente los puntos creando líneas rectas (este método aunque hubiera podido ayudar a resolver el punto 5 del segundo previo, no permite escoger datos "por trozos", es decir, crear 4 rectas)</p>
+        	<div class="text-center"><img src="img/9.png" class="w-50 img-fluid" alt="Interpolación / Linealización de la gráfica usando rectas de punto a punto" /></div>
+
+        	<p>Tenemos la posibilidad de explorar otros modelos que puedan ayudarnos a descubrir el comportamiento de la recta, como el modelo exponencial:</p>
+        	<div class="text-center"><img src="img/10.png" class="w-50 img-fluid" alt="Modelo exponencial" /></div>
+
+        	<p>O el modelo de Fourier (que se aleja bastante de una gran cantidad de puntos, que cuyo comportamiento no está ni cerca de ser el de la gráfica original):</p>
+			<div class="text-center"><img src="img/11.png" class="w-50 img-fluid" alt="Modelo de Fourier" /></div>
+
+			<p>Finalmente, un modelo que parece describir con bastante cercanía el conjunto de datos, es el modelo Racional (Radical)</p>
+			<div class="text-center"><img src="img/12.png" class="w-50 img-fluid" alt="Modelo radical" /></div>
+
+			<p>Podremos ver qué tanto se acerca este modelo a nuestro conjunto de datos usando la gráfica de los residuos, visible a través del menú <em>View -> Residuals Plot</em>:</p>
+			<div class="text-center"><img src="img/13.png" class="w-50 img-fluid" alt="Visualizar gráfica de residuos" /></div>
+
+			<p>Así podremos ver junto a la gráfica principal, la gráfica de sus valores residuos, que tal y como se aprecia, son décimas y hasta centésimas lo que separa este modelo del conjunto de datos:</p>
+			<div class="text-center"><img src="img/14.png" class="w-50 img-fluid" alt="Gráfica de residuos junto a la gráfica principal" /></div>
+
+			<p>Ya con nuestra figura en el toolbox de Curve Fitting, podremos exportar esta gráfica a la función de figura, propia de Matlab, con la que podremos realizar más cosas, para hacerlo, nos dirigimos a <em>File -> Print to Figure</em>:</p>
+			<div class="text-center"><img src="img/15.png" class="w-50 img-fluid" alt="Llevar gráfica de Curve Fiting a Figure de Matlab" /></div>
+
+			<p>Ya dentro de Figure, en Matlab, podremos acceder a todas las funciones, como la de extrapolación, ubicada en la barra de herramientas, debajo del menú de la figura:</p>
+			<div class="text-center"><img src="img/16.png" class="w-50 img-fluid" alt="Seleccionar herramienta de interpolación en la Figura de Matlab" /></div>
+
+			<p>Ya con la herramienta, podremos seleccionar cualquier parte de la gráfica y obtener sus valores de X y Y (o D y V en nuestro caso):</p>
+			<div class="text-center"><img src="img/17.png" class="w-50 img-fluid" alt="Interpolación en la figura de Matlab" /></div>
+
+			<p>Y finalmente, una de las cosas más útiles de exportar a Figure de Matlab, es el de poder copiar la figura sin necesidad de usar herramientas externas o realizar un proceso un poco más largo (como imprimir pantalla y recortar la figur):</p>
+			<div class="text-center"><img src="img/18.png" class="w-50 img-fluid" alt="Copiar figura en Matlab" /></div>
+
+			<p>La herramienta de Curve Fitting finalmente nos muestra ser una herramienta muy poderosa para trabajar con un conjunto de datos e ir encontrando el modelo matemático o la tendencia que cumple ese conjunto de datos, muy útil en las etapas de planificación de un experimento.</p>
+
+			<p>Espero que esta explicación haya sido de ayuda.</p>
+
         </div>
+
         <div class="tab-pane" id="midterm">
-          <div class="list-group">
-            <div class="row">
-              <div class="col" id="deezer-list-col"></div>
-            </div>
-          </div>
+        	<ol>
+        		<li>Linealice las siguientes funciones:</li>
+        		<ol type="a">
+        			<li>
+        				\(R=\ a\ e^\frac{b}{T}\)
+        			</li>
+					<p>Para linealizar esta función se aplica logaritmo natural a cada lado:</p>
+					
+					$$Ln(R)\ =\ \frac{b}{T}\ +\ Ln(a)$$
+					
+					<p>En este momento tenemos dos opciones:</p>
+					
+					<ul>
+						<li>Llamamos \(T’\) a  \(\frac{1}{T}\), \(R’\) a \(Ln(R)\) y a \(Ln(a)\) lo llamamos \(a’\), así:</li>
+						$$R\prime\ =\ bT\prime\ +\ a\prime$$
+						<li>Realizamos el inverso de la ecuación para que la ecuación quede de la forma correcta:</li>
+						
+						$$\frac{1}{Ln(R)}\ =\ \frac{T}{b}\ +\ \frac{1}{Ln(a)}$$
+
+						<p>Podremos llamar a \(\frac{1}{Ln(R)} R’\) y a \(\frac{1}{Ln(a)}\) llamarlo \(a’\), para tener ecuación así:</p>
+
+						$$R\prime\ =\ \frac{1}{b}T\ +\ a\prime$$
+
+					</ul>
+
+					<li>
+						\( M\ =\ \sqrt{ct \ +\ d} \)
+					</li>
+					<p>Para linealizar esta ecuación sólo tendremos que elevar ambos lados al cuadrado, y llamar \(M\prime\) a \(M^2\):</p>
+
+					$$M^2\ =\ ct\ +\ d\ \Rightarrow\ M\prime\ =\ ct\ +\ d$$
+
+					<li>
+						\(	P\ =\ e\ +\ \frac{g}{T} \)
+					</li>
+					<p>Para linealizar esta función llamamos \(T’\) a  \(\frac{1}{T}\):</p>
+
+					$$P\ =\ gT\prime\ +\ e$$
+
+					<li>
+						\(	PV^n\ =\ k \)
+					</li>
+					<p>Para linealizar esta función, debemos tratar de llevarla al modelo potencial:</p>
+
+					$$P\ =\ \frac{k}{V^n}$$
+
+					<p>Ahora, como necesitamos a \(V^n\) en el numerador para poderla linealizar, llamaremos \(P\prime\) a \(\frac{1}{P}\):</p>
+
+					$$P\prime\ =\ \frac{1}{k}\ V^n$$
+
+					<p>Ahora la linealizaremos a través de los logaritmos:</p>
+
+					$$log(P\prime)\ =\ n\ log(V)\ +\ log(\frac{1}{k})$$
+
+					<p>Y nuevamente haremos cambio de variable, de la siguiente forma:</p>
+
+					$$P^{\prime\prime}=log{\left(P^\prime\right)}$$
+					$$V^\prime=log{\left(V\right)}$$
+					$$k\prime\ =log(\frac{1}{k})$$
+
+					<p>Entonces la ecuación quedaría de la siguiente forma:</p>
+
+					$$P\prime\prime\ =\ nV\prime\ +\ k\prime$$
+        		</ol>
+
+        		<li>Para la función del literal c) dibujar la gráfica, si \(e\ =\ 3,8x{10}^5\) y \({g\ =\ -1,02x10}^8\) entre el rango de valores T=273K y T=450K.</li>
+
+        		<p>La siguiente gráfica es la representación de la función sin su linealización utilizando Matlab.</p>
+
+        		<div class="text-center"><img src="img/midterm/1.png" class="img-fluid" alt="" /></div>
+
+        		<p>Utilizando “Data Cursor”, una de las herramientas en el visualizador de gráficas de Matlab, se seleccionaron los siguientes valores de T con sus respectivos valores de P:</p>
+
+        		<table class="table table-bordered table-hover text-center"><tbody>
+        		<tr>
+        			<td width="44"><p>T</p></td>
+        			<td width="61"><p>273</p></td>
+        			<td width="80"><p>303</p></td>
+					<td width="80"><p>333</p></td>
+        			<td width="80"><p>363</p></td>
+        			<td width="80"><p>393</p></td>
+        			<td width="80"><p>423</p></td>
+        			<td width="81"><p>453</p></td>
+        		</tr>
+        		<tr>
+        			<td width="44"><p>P</p></td>
+        			<td width="61"><p>6374</p></td>
+        			<td width="80"><p>\( 4.337x{10}^4 \)</p></td>
+        			<td width="80"><p>\( 7.369x{10}^4 \)</p></td>
+        			<td width="80"><p>\( 9.901x{10}^4 \)</p></td>
+        			<td width="80"><p>\( 1.205x{10}^5 \)</p></td>
+        			<td width="80"><p>\( 1.389x{10}^5 \)</p></td>
+        			<td width="81"><p>\( 1.548x{10}^5 \)</p></td>
+        		</tr>
+        		</tbody></table>
+
+        		<p>Los datos fueron llevados a las funciones polyfit y polyval de Matlab para realizar la gráfica:</p>
+
+        		<div class="text-center"><img src="img/midterm/2.png" class="img-fluid" alt="" /></div>
+
+        		<p>La ecuación de la recta está dada por: \(P(T)=813.3T-\ 2.043x{10}^5\) (A partir de \(f(x)\ =\ p1\ast x\ -\ p2\))</p>
+
+        		<li>Especificar cada una de las etapas, que se deben formular en la solución de los siguientes problemas:</li>
+
+        		<p><b>Grupo B</b> <small><em>Asignado al grupo en el que estoy</em></small></p>
+
+        		<ol type="a">
+        			<li>Determinar el modelo circuital paralelo de un capacitor de aceite</li>
+        			<ol>
+        				<li>Definición y defensa del problema o investigación</li>
+        				<p>Un capacitor de aceite es un dispositivo capaz de almacenar energía sustentando un campo eléctrico, cuyo dieléctrico en este caso es el aceite, esto debido a que el aceite es de utilidad para ser usado con altos voltajes en corriente alterna (AC) o doble voltajes (AC/DC), con altos picos de voltaje, altos picos de corriente y cuando el tiempo de operación sea de larga duración. Por otra parte, el uso de estos capacitores o condensadores se ha visto reducido por la cantidad de contaminación que llegan a producir.</p>
+
+        				<li>Análisis preliminar del problema</li>
+        				<p>El modelo con el que se identifica el capacitor (de una forma general, independiente de su dieléctrico, es aquel en el que se tienen dos placas perfectamente conductoras de sección S, separadas una distancia a entre las cuales hay un dieléctrico de permitividad \(\varepsilon\) y con una pequeña conductividad \(\sigma\). Entre las placas se establece una d.d.p. constante por medio de una fuente de f.e.m \(\epsilon\), tal y como se ilustra en la figura a continuación:</p>
+
+        				<div class="text-center"><img src="img/midterm/3.png" class="img-fluid" alt="" /></div>
+
+        				<li>Planificación del experimento</li>
+
+        				<p>Para analizar el capacitor estudiaremos la corriente que fluye a través de él, así como sus densidades de corriente, para hallar la capacitancia y posteriormente su modelo circuital. En el medio material existe una densidad de corriente proporcional al campo, según la ley de Ohm:</p>
+
+        				<div class="text-center"><img src="img/midterm/4.png" class="img-fluid" alt="" /></div>
+
+        				<p>Esto quiere decir que el medio dieléctrico, al no ser perfectamente aislante, es atravesado por una intensidad de corriente</p>
+
+        				<div class="text-center"><img src="img/midterm/5.png" class="img-fluid" alt="" /></div>
+
+        				<div class="text-center"><img src="img/midterm/6.png" class="img-fluid" alt="" /></div>
+
+        				<p>El que haya una corriente no quiere decir que las placas estén descargadas. Como en cualquier condensador plano habrá una carga:</p>
+
+        				<div class="text-center"><img src="img/midterm/7.png" class="img-fluid" alt="" /></div>
+
+        				<li>Evaluación del experimento</li>
+
+        				<p>Ahora llevaremos el circuito a su versión equivalente. Este elemento es tanto un capacitor C (caracterizado por una carga y una energía almacenada) como una resistencia R (caracterizada por una corriente y una potencia disipada por efecto Joule). La diferencia de potencial entre los extremos de la resistencia es la misma que entre los del condensador, por lo que ambos elementos están en paralelo.</p>
+
+        				<div class="text-center"><img src="img/midterm/8.png" class="img-fluid" alt="" /></div>
+
+        				<p>Si se conecta una fuente real, el circuito equivalente se complica:</p>
+
+        				<div class="text-center"><img src="img/midterm/9.png" class="img-fluid" alt="" /></div>
+
+        				<div class="text-center"><img src="img/midterm/10.png" class="img-fluid" alt="" /></div>
+
+        				<p>Aunque el sistema real está formado por dos elementos (la fuente real y el condensador con pérdidas), el circuito equivalente está formado por cuatro: la fuente ideal y la resistencia interna, puestos en serie y el condensador ideal y la resistencia ideal, puestos en paralelo.</p>
+
+						<p>La diferencia de potencial entre las placas ya no coincide con la fuerza electromotriz, sino que:</p>
+
+						<div class="text-center"><img src="img/midterm/11.png" class="img-fluid" alt="" /></div>
+
+						<p>Se sigue cumpliendo que la diferencia de potencial entre las placas es proporcional a la corriente que circula por el material</p>
+
+						<div class="text-center"><img src="img/midterm/12.png" class="img-fluid" alt="" /></div>
+
+						<p>Igualando y despejando obtenemos la corriente</p>
+
+						<div class="text-center"><img src="img/midterm/13.png" class="img-fluid" alt="" /></div>
+
+						<p>y la d.d.p.</p>
+
+						<div class="text-center"><img src="img/midterm/14.png" class="img-fluid" alt="" /></div>
+
+						<p>Una vez que tenemos la diferencia de potencial, tenemos la carga en las placas, que ahora es dependiente de la resistencia del elemento:</p>
+
+						<div class="text-center"><img src="img/midterm/15.png" class="img-fluid" alt="" /></div>
+
+						<p>Igualmente hallamos el campo entre las placas</p>
+
+						<div class="text-center"><img src="img/midterm/16.png" class="img-fluid" alt="" /></div>
+
+						<p>La densidad de corriente</p>
+
+						<div class="text-center"><img src="img/midterm/17.png" class="img-fluid" alt="" /></div>
+
+						<p>La energía almacenada</p>
+
+						<div class="text-center"><img src="img/midterm/18.png" class="img-fluid" alt="" /></div>
+
+						<p>Y la potencia disipada</p>
+
+						<div class="text-center"><img src="img/midterm/19.png" class="img-fluid" alt="" /></div>
+
+						<li>Conclusiones</li>
+
+						<p>Sin la conexión de la fuente, el circuito equivalente a un condensador real con pérdidas es una asociación en paralelo de dos elementos:</p>
+
+						<ul>
+							<li>Un condensador ideal de capacidad C, por el cual no pasa corriente, es decir, tiene conductancia nula (o resistencia infinita)</li>
+							<li>Una resistencia ideal R, que no almacena carga alguna, es decir, sin capacidad</li>
+						</ul>
+
+						<p>De esta forma, en el circuito se separan los efectos de almacenamiento de carga y de flujo de carga. De la misma manera, se separan el almacenamiento de energía y la disipación de energía por efecto Joule.</p>
+
+						<p>De todas maneras, hay que insistir, no obstante, que aunque el circuito equivalente tenga dos elementos, en realidad se trata de un solo dispositivo físico. Una cosa es el sistema real y otra su modelo circuital.</p>
+
+						<p>De igual forma, que el capacitor sea de aceite, electrolítico o cerámico, sólo afecta su capacidad de carga más no su modelo circuital.</p>
+
+						<p><em>Información gracias a:</em></p>
+
+						<ul>
+							<li><a href="http://laplace.us.es/wiki/index.php/Condensador_con_p%C3%A9rdidas" title="Universidad de Sevilla">Universidad de Sevilla</a></li>
+							<li><a href="http://www.richardsonrfpd.com/Pages/Product-End-Category.aspx?productCategory=10117" title="Richardson RFPD">Richardson RFPD</a></li>
+						</ul>
+
+        			</ol>
+
+        			<li>Determinar los valores R y C de un circuito serie mediante un generador de frecuencia variable</li>
+
+        			<ol>
+        				<li>Definición y defensa del problema</li>
+        				<p>Para analizar los valores de R y C, debemos considerar un circuito RLC completo, y además analizar el circuito teniendo en cuenta la frecuencia, por lo tanto, los valores se definirán a partir de la ecuación que dice que la frecuencia angular es igual a dos veces pi por la frecuencia (\(\omega\ =\ 2\pi f\\))</p>
+
+        				<li>Análisis preliminar del problema</li>
+        				<p>Una señal alterna (proveniente de una fuente de tensión de corriente alterna) puede ser considerada como un generador de frecuencia variable, y al conectar un circuito RLC en serie a esta, hay en un efecto de ésta en cada uno de los componentes. En el condensador aparecerá una reactancia capacitiva y en la bobina una reactancia inductiva, dadas por las ecuaciones:</p>
+
+        				$$XL\ =\ 2\ \ast\ \pi\ast\ f\ \ast\ L\ \ $$
+        				$$XC\ =\ \frac{1}{2\ \ast\ \pi\ \ast\ f\ \ast\ C}$$
+
+        				<li>Planificación del experimento</li>
+        				<p>Como se puede ver los valores de estas reactancias depende de la frecuencia de la fuente. A mayor frecuencia, XL es mayor, pero XC es menor y viceversa.</p>
+        				<p>Hay una frecuencia para la cual el valor de la XC y XL son iguales. Esta frecuencia se llama <b>frecuencia de resonancia</b> y se obtiene de la siguiente fórmula:</p>
+
+        				$$FR\ =\ \frac{1}{2\pi\ \sqrt{(L\ast C)}}$$
+
+        				<div class="text-center"><img src="img/midterm/20.gif" class="img-fluid" alt="" /></div>
+
+        				<li>Evaluación del experimento</li>
+        				<p>En resonancia como los valores de XC y XL son iguales, se cancelan y en un circuito RLC en serie la impedancia que ve la fuente es el valor de la resistencia. A frecuencias menores a la de resonancia, el valor de la reactancia capacitiva es grande y la impedancia es capacitiva. A frecuencias superiores a la de resonancia, el valor de la reactancia inductiva crece y la impedancia es inductiva.</p>
+
+        				<li>Conclusiones</li>
+        				<p>La importancia de este tipo de circuitos es que son utilizados para seleccionar bandas de frecuencias y para rechazar otras. Cuando se está en la frecuencia de resonancia la corriente por el circuito es máxima.</p>
+
+        				<p><em>Información gracías a: <a href="https://unicrom.com/resonancia-en-un-circuito-rlc-serie/" title="Electrónica Unicrom">Electrónica Unicrom</a></em></p>
+        			</ol>
+        		
+        		</ol>
+
+        		<li>Utilizando la técnica de mínimos cuadrados linealice los siguientes conjuntos de datos:</li>
+
+        		<ol type="a">
+        			<li></li>
+        			<table class="table table-bordered table-hover text-center"><tbody>
+        			<tr>
+        				<td width="51"><p>Xi</p></td>
+        				<td width="51"><p>Yi</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>1</p></td>
+        				<td width="51"><p>1.5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>2</p></td>
+        				<td width="51"><p>2.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>3</p></td>
+        				<td width="51"><p>4.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>5</p></td>
+        				<td width="51"><p>4.6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>6</p></td>
+        				<td width="51"><p>4.7</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>8</p></td>
+        				<td width="51"><p>8.5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>9</p></td>
+        				<td width="51"><p>8.8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="51"><p>10</p></td>
+        				<td width="51"><p>9.9</p></td>
+        			</tr>
+        			</tbody></table>
+
+        			<p>Para aplicar la técnica de los mínimos cuadrados realizaremos la siguiente tabla:</p>
+
+        			<table class="table table-bordered table-hover"><tbody>
+        			<tr>
+        				<td width="128"><p>Xi</p></td>
+        				<td width="128"><p>Yi</p></td>
+        				<td width="128"><p>\({Xi}^2\)</p></td>
+        				<td width="128"><p>Xi * Yi</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>1</p></td>
+        				<td width="128"><p>1.5</p></td>
+        				<td width="128"><p>1</p></td>
+        				<td width="128"><p>1.5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>2</p></td>
+        				<td width="128"><p>2.0</p></td>
+        				<td width="128"><p>4</p></td>
+        				<td width="128"><p>4.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>3</p></td>
+        				<td width="128"><p>4.0</p></td>
+        				<td width="128"><p>9</p></td>
+        				<td width="128"><p>12.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>5</p></td>
+        				<td width="128"><p>4.6</p></td>
+        				<td width="128"><p>25</p></td>
+        				<td width="128"><p>23.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>6</p></td>
+        				<td width="128"><p>4.7</p></td>
+        				<td width="128"><p>36</p></td>
+        				<td width="128"><p>28.2</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>8</p></td>
+        				<td width="128"><p>8.5</p></td>
+        				<td width="128"><p>64</p></td>
+        				<td width="128"><p>68.0</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>9</p></td>
+        				<td width="128"><p>8.8</p></td>
+        				<td width="128"><p>81</p></td>
+        				<td width="128"><p>79.2</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>10</p></td>
+        				<td width="128"><p>9.9</p></td>
+        				<td width="128"><p>100</p></td>
+        				<td width="128"><p>99</p></td>
+        			</tr>
+        			<tr>
+        				<td width="128"><p>\( \sum X i\ =\ 44 \)</p></td>
+        				<td width="128"><p>\( \sum Y i\ =\ 44 \)</p></td>
+        				<td width="128"><p>\( \sum{Xi}^2\ =\ 320 \)</p></td>
+        				<td width="128"><p>\( \sum{Xi\ \ast\ Yi}\ =\ 314.9 \)</p></td>
+        			</tr>
+        			</tbody></table>
+
+        			$$∆ = N\sum_{i=\mathbf{1}}^{N}{Xi}^2 - \left(\sum_{i=\mathbf{1}}^{N}Xi\right)^\mathbf{2}$$
+
+        			<p>Entonces, sabiendo que N es la cantidad de datos (N = 8), podemos decir que la incertidumbre \(\Delta\) es:</p>
+
+        			$$\Delta = 8 * (320) - {(\mathbf{44})}^\mathbf{2} = 624$$
+
+        			$$m\ =\ \frac{N\sum_{i=1}^{N}{X_iY_i-\sum_{i=1}^{N}{X_i\sum_{i=1}^{N}Y_i}}}{\Delta}\ =\ \frac{(8\ \ast\ 314.9)\ -\ (44\ \ast\ 44)}{624}$$
+
+        			$$m\ =\ 0.935$$
+
+        			$$b=\frac{\sum_{i=1}^{N}{{X_i}^2{\sum_{i=1}^{N}Y}_i-\sum_{i=1}^{N}{X_i\sum_{i=1}^{N}{X_iY}_i}}}{\Delta}\ =\ \frac{(320\ \ast\ 44)\ -\ (44\ \ast\ 314.9)}{624}$$
+
+        			$$b=\ 0.359$$
+
+        			$$\sigma_y=\sqrt{\frac{1}{N-2}\sum_{i=1}^{N}{(Y_i-b-m{X_i)}^2}}$$
+
+        			$$\sum_{i=\mathbf{1}}^{N}{(Y_i-b-m{X_i)}^\mathbf{2}}\ \ $$
+
+        			$$={(1,5-0.359-0.935\ast1)}^2+{(2-0.359-0.935\ast2)}^2+{(4-0.359-0.935\ast3)}^2+{(4.6-0.359-0.935\ast5)}^2+{(4.7-0.359-0.935\ast6)}^2+{(8.5-0.359-0.935\ast8)}^2+{(8.8-0.359-0.935\ast9)}^2+{(9.9-0.359-0.935\ast10)}^2$$
+
+        			$$=0.0424 + 0.0524 + 0.699 + 0.188 + 1.61 + 0.437 + 6.76\ast{10}^{-4} + 0.0365$$
+
+        			$$=3.066$$
+
+        			$$\sigma_y=\sqrt{\frac{\mathbf{3}.\mathbf{066}}{\mathbf{8}-\mathbf{2}}}=\mathbf{0}.\mathbf{715} $$
+
+        			<p>Ahora hallaremos las incertidumbres para la pendiente (m) y para la constante del intercepto (b):</p>
+
+        			$$\mu_m=\sigma_y\sqrt{\frac{N}{\Delta}}=0.715\sqrt{\frac{8}{624}}=0.081$$
+
+        			$$\mu_b=\sigma_y\sqrt{\frac{\sum_{i=1}^{N}{X_i}^2}{\Delta}}=0.715\sqrt{\frac{320}{624}}=0.512$$
+
+        			<p>La ecuación de la recta resultante sería:</p>
+
+        			$$\mathbf{Y}=\left(\mathbf{0}.\mathbf{935}\pm\mathbf{0}.\mathbf{081}\right)\mathbf{X}+(\mathbf{0}.\mathbf{359}\pm\mathbf{0}.\mathbf{512})$$
+
+        			<p>A continuación, se visualiza la gráfica con su linealización: </p>
+
+        			<div class="text-center"><img src="img/midterm/21.png" class="img-fluid" alt="" /></div>
+
+        			<li>Para las siguientes tablas, agregaremos inmediatamente las columnas que nos serán útiles para realizar el análisis de los mínimos cuadrados.</li>
+
+        			<table class="table table-bordered table-hover"><tbody>
+        			<tr>
+        				<td width="160"><p>Temperatura (&deg;C)</p></td>
+        				<td width="120"><p>Voltaje (mV)</p></td>
+        				<td width="155"><p>\({Ti}^2\)</p></td>
+        				<td width="189"><p>Ti * Vi</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>47</p></td>
+        				<td width="120"><p>749</p></td>
+        				<td width="155"><p>2209</p></td>
+        				<td width="189"><p>35203</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>45,2</p></td>
+        				<td width="120"><p>774</p></td>
+        				<td width="155"><p>2043,04</p></td>
+        				<td width="189"><p>34984,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>44,1</p></td>
+        				<td width="120"><p>799</p></td>
+        				<td width="155"><p>1944,81</p></td>
+        				<td width="189"><p>35235,9</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>43,1</p></td>
+        				<td width="120"><p>823</p></td>
+        				<td width="155"><p>1857,61</p></td>
+        				<td width="189"><p>35471,3</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>42,2</p></td>
+        				<td width="120"><p>852</p></td>
+        				<td width="155"><p>1780,84</p></td>
+        				<td width="189"><p>35954,4</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>41,2</p></td>
+        				<td width="120"><p>877</p></td>
+        				<td width="155"><p>1697,44</p></td>
+        				<td width="189"><p>36132,4</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>40,4</p></td>
+        				<td width="120"><p>906</p></td>
+        				<td width="155"><p>1632,16</p></td>
+        				<td width="189"><p>36602,4</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>39,3</p></td>
+        				<td width="120"><p>935</p></td>
+        				<td width="155"><p>1544,49</p></td>
+        				<td width="189"><p>36745,5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>38,4</p></td>
+        				<td width="120"><p>970</p></td>
+        				<td width="155"><p>1474,56</p></td>
+        				<td width="189"><p>37248</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>37,4</p></td>
+        				<td width="120"><p>999</p></td>
+        				<td width="155"><p>1398,76</p></td>
+        				<td width="189"><p>37362,6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>36,4</p></td>
+        				<td width="120"><p>1033</p></td>
+        				<td width="155"><p>1324,96</p></td>
+        				<td width="189"><p>37601,2</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>35,3</p></td>
+        				<td width="120"><p>1068</p></td>
+        				<td width="155"><p>1246,09</p></td>
+        				<td width="189"><p>37700,4</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>34,5</p></td>
+        				<td width="120"><p>1101</p></td>
+        				<td width="155"><p>1190,25</p></td>
+        				<td width="189"><p>37984,5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>33,5</p></td>
+        				<td width="120"><p>1136</p></td>
+        				<td width="155"><p>1122,25</p></td>
+        				<td width="189"><p>38056</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>32,5</p></td>
+        				<td width="120"><p>1174</p></td>
+        				<td width="155"><p>1056,25</p></td>
+        				<td width="189"><p>38155</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>31,6</p></td>
+        				<td width="120"><p>1209</p></td>
+        				<td width="155"><p>998,56</p></td>
+        				<td width="189"><p>38204,4</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>30,6</p></td>
+        				<td width="120"><p>1248</p></td>
+        				<td width="155"><p>936,36</p></td>
+        				<td width="189"><p>38188,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>29,7</p></td>
+        				<td width="120"><p>1287</p></td>
+        				<td width="155"><p>882,09</p></td>
+        				<td width="189"><p>38223,9</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>28,5</p></td>
+        				<td width="120"><p>1331</p></td>
+        				<td width="155"><p>812,25</p></td>
+        				<td width="189"><p>37933,5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>27,6</p></td>
+        				<td width="120"><p>1370</p></td>
+        				<td width="155"><p>761,76</p></td>
+        				<td width="189"><p>37812</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>26,9</p></td>
+        				<td width="120"><p>1413</p></td>
+        				<td width="155"><p>723,61</p></td>
+        				<td width="189"><p>38009,7</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>25,6</p></td>
+        				<td width="120"><p>1458</p></td>
+        				<td width="155"><p>655,36</p></td>
+        				<td width="189"><p>37324,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>24,9</p></td>
+        				<td width="120"><p>1502</p></td>
+        				<td width="155"><p>620,01</p></td>
+        				<td width="189"><p>37399,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>23,7</p></td>
+        				<td width="120"><p>1547</p></td>
+        				<td width="155"><p>561,69</p></td>
+        				<td width="189"><p>36663,9</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>22,7</p></td>
+        				<td width="120"><p>1595</p></td>
+        				<td width="155"><p>515,29</p></td>
+        				<td width="189"><p>36206,5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>21,8</p></td>
+        				<td width="120"><p>1642</p></td>
+        				<td width="155"><p>475,24</p></td>
+        				<td width="189"><p>35795,6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>20,8</p></td>
+        				<td width="120"><p>1692</p></td>
+        				<td width="155"><p>432,64</p></td>
+        				<td width="189"><p>35193,6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>20</p></td>
+        				<td width="120"><p>1740</p></td>
+        				<td width="155"><p>400</p></td>
+        				<td width="189"><p>34800</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>18,9</p></td>
+        				<td width="120"><p>1793</p></td>
+        				<td width="155"><p>357,21</p></td>
+        				<td width="189"><p>33887,7</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>18</p></td>
+        				<td width="120"><p>1847</p></td>
+        				<td width="155"><p>324</p></td>
+        				<td width="189"><p>33246</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>17,1</p></td>
+        				<td width="120"><p>1901</p></td>
+        				<td width="155"><p>292,41</p></td>
+        				<td width="189"><p>32507,1</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>16,1</p></td>
+        				<td width="120"><p>1956</p></td>
+        				<td width="155"><p>259,21</p></td>
+        				<td width="189"><p>31491,6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>15,1</p></td>
+        				<td width="120"><p>2008</p></td>
+        				<td width="155"><p>228,01</p></td>
+        				<td width="189"><p>30320,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>14,3</p></td>
+        				<td width="120"><p>2066</p></td>
+        				<td width="155"><p>204,49</p></td>
+        				<td width="189"><p>29543,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>13,4</p></td>
+        				<td width="120"><p>2120</p></td>
+        				<td width="155"><p>179,56</p></td>
+        				<td width="189"><p>28408</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>12,3</p></td>
+        				<td width="120"><p>2174</p></td>
+        				<td width="155"><p>151,29</p></td>
+        				<td width="189"><p>26740,2</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>11,3</p></td>
+        				<td width="120"><p>2239</p></td>
+        				<td width="155"><p>127,69</p></td>
+        				<td width="189"><p>25300,7</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>10,5</p></td>
+        				<td width="120"><p>2297</p></td>
+        				<td width="155"><p>110,25</p></td>
+        				<td width="189"><p>24118,5</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>9,2</p></td>
+        				<td width="120"><p>2354</p></td>
+        				<td width="155"><p>84,64</p></td>
+        				<td width="189"><p>21656,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>8,6</p></td>
+        				<td width="120"><p>2385</p></td>
+        				<td width="155"><p>73,96</p></td>
+        				<td width="189"><p>20511</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>6,8</p></td>
+        				<td width="120"><p>2507</p></td>
+        				<td width="155"><p>46,24</p></td>
+        				<td width="189"><p>17047,6</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>5,8</p></td>
+        				<td width="120"><p>2566</p></td>
+        				<td width="155"><p>33,64</p></td>
+        				<td width="189"><p>14882,8</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>5</p></td>
+        				<td width="120"><p>2629</p></td>
+        				<td width="155"><p>25</p></td>
+        				<td width="189"><p>13145</p></td>
+        			</tr>
+        			<tr>
+        				<td width="160"><p>\( \sumT_i=\ 1107,3 \)</p></td>
+        				<td width="120"><p>\( \sum{V_i=}\ 66072 \)</p></td>
+        				<td width="155"><p>\( \sum{T_i}^2=34794,97 \)</p></td>
+        				<td width="189"><p>\( \sum{T_i\astV_i}=\ 1415001,5 \)</p></td>
+        			</tr>
+        			</tbody></table>
+
+        			$$N= 43$$
+
+					$$V=mT+ b$$
+
+					$$\Delta=N\sum_{i=1}^{N}{{T_i}^2-\ (}{\sum_{i=1}^{N}{T_i)}\ }^2=\left(43\right)\ast\left(34794.97\right)-\left(1107.3\right)^2=270070.42$$
+
+					$$m=\frac{N\sum_{i=1}^{N}{T_iV_i-\sum_{i=1}^{N}{T_i\sum_{i=1}^{N}V_i}}}{\Delta}=\ \frac{\left(43\right)\ast\left(1415001.5\ast{10}^{-3}\right)-\left(1107.3\right)\ast(66072\ast{10}^{-3})}{270070.42}$$
+
+					$$m=\ -45.6\ast{10}^{-3}= -0.0456$$
+
+					$$b=\frac{\sum_{i=1}^{N}{{T_i}^2{\sum_{i=1}^{N}V}_i-\sum_{i=1}^{N}{T_i\sum_{i=1}^{N}{T_iV}_i}}}{\Delta}$$
+
+					$$b=\ \frac{\left(34794.97\right)\ast\left(66072\ast{10}^{-3}\right)-\left(1107.3\right)\ast(1415001.5\ast{10}^{-3})}{270070.42}$$
+
+					$$b=2.71$$
+
+					$$\sigma_y=\sqrt{\frac{1}{N-2}\sum_{i=1}^{N}{(V_i-b-m{T_i)}^2}}$$
+
+					$$\sum_{i=1}^{N}{(V_i-b-m{T_i)}^2}$$
+
+					$$=[\ (749-2710+45.6{\ast47)}^2+(774-2710+45.6{\ast45.2)}^2+(799-2710+45.6{\ast44.1)}^2+(823-2710+45.6{\ast43.1)}^2+(852-2710+45.6{\ast42.2)}^2+(877-2710+45.6{\ast41.2)}^2+(906-2710+45.6{\ast40.4)}^2+(935-2710+45.6{\ast39.3)}^2+(970-2710+45.6{\ast38.4)}^2+(999-2710+45.6{\ast37.4)}^2+(1033-2710+45.6{\ast36.4)}^2+(1068-2710+45.6{\ast35.3)}^2+(1101-2710+45.6{\ast34.5)}^2+(1136-2710+45.6{\ast33.5)}^2+(1174-2710+45.6{\ast32.5)}^2+(1209-2710+45.6{\ast31.6)}^2+(1248-2710+45.6{\ast30.6)}^2+(1287-2710+45.6{\ast29.7)}^2+(1331-2710+45.6{\ast28.5)}^2+(1370-2710+45.6{\ast27.6)}^2+(1413-2710+45.6{\ast26.9)}^2+(1458-2710+45.6{\ast25.6)}^2+(1502-2710+45.6{\ast24.9)}^2+(1547-2710+45.6{\ast23.7)}^2+(1595-2710+45.6{\ast22.7)}^2+(1642-2710+45.6{\ast21.8)}^2+(1692-2710+45.6{\ast20.8)}^2+(1740-2710+45.6{\ast20)}^2+(1793-2710+45.6{\ast18.9)}^2+(1847-2710+45.6{\ast18)}^2+(1901-2710+45.6{\ast17.1)}^2+(1956-2710+45.6{\ast16.1)}^2+(2008-2710+45.6{\ast15.1)}^2+(2066-2710+45.6{\ast14.3)}^2+(2120-2710+45.6{\ast13.4)}^2+(2174-2710+45.6{\ast12.3)}^2+(2239-2710+45.6{\ast11.3)}^2+(2297-2710+45.6{\ast10.5)}^2+(2354-2710+45.6{\ast9.2)}^2+(2385-2710+45.6{\ast8.6)}^2+(2507-2710+45.6{\ast6.8)}^2+(2566-2710+45.6{\ast5.8)}^2+(2629-2710+45.6{\ast5)}^2\ ]*{10}^{-6}$$
+
+					$$= (2.2077*{10}^5)*\ {10}^{-6} = 0.221$$
+
+					<p>Las incertidumbres de la pendiente y el intercepto están dadas por:</p>
+
+					$$\sigma_V=\sqrt{\frac{0.221}{43-2}}=0.0734$$
+
+					$$\mu_m=\sigma_V\sqrt{\frac{N}{\Delta}}=0.0734\sqrt{\frac{43}{270070.42}}=9.26*{10}^{-4}$$
+
+					$$\mu_b=\sigma_V\sqrt{\frac{\sum_{i=1}^{N}{T_i}^2}{\Delta}}=0.0734\sqrt{\frac{34794,97}{270070.42}}=0.0263$$
+
+					<p>Y la ecuación de la recta quedaría tal que:</p>
+
+					$$V = (-0.0456 \pm 9.26*{10}^{-4} )T + (2.71 \pm 0.0263)$$
+
+					<p>A continuación, se detalla la gráfica con su linealización:</p>
+
+					<div class="text-center"><img src="img/midterm/22.png" class="img-fluid" alt="" /></div>
+
+        		</ol>
+
+        		<li>Utilice el ajuste de mínimos cuadrados para linealizar la siguiente curva utilizando 4 líneas rectas</li>
+
+        		<div class="text-center"><img src="img/midterm/23.png" class="img-fluid" alt="" /></div>
+
+        		<p>Para ello, se tomarán 4 grupos de datos, de la siguiente forma:</p>
+
+        		<p><b>Primera línea recta:</b></p>
+
+        		<p>Como el primer grupo tiene 5 datos, entonces N = 5.</p>
+
+        	</ol>
         </div>
       </div>
 
+      <hr>
+
       <footer>
-        <p>&copy; José Daniel "Superjd10" Durán Bayona 2017</p>
+        <p>&copy; José Daniel "Superjd10" Durán Bayona 2017  || Alojado con ♥ (gratis) en los servidores de Github Pages</p>
       </footer>
     </div>
 
@@ -103,6 +882,16 @@
 	  ga('create', 'UA-62141409-1', 'auto');
 	  ga('send', 'pageview');
 	
+	</script>
+	<script type="text/x-mathjax-config">
+	MathJax.Hub.Config({
+	  CommonHTML: {linebreaks: { automatic: true}},
+	  SVG: {linebreaks: { automatic: true}},
+	  "HTML-CSS": {linebreaks: { automatic: true}}
+	});
+	</script>
+	<script type="text/javascript" async
+	  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
 	</script>
   </body>
 </html>
